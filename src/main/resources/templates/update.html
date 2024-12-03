@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<form method="post" action="/update">
+  <input type="hidden" name="id" th:value="${item.getId()}">
+  <input type="text" name="word" th:value="${item.getWord()}">
+  <input type="text" name="translate" th:value="${item.getTranslate()}">
+  <input type="number" name="speechPartId" th:value="${item.getSpeechPart().getId()}">
+  <input type="submit" value="Update"/>
+</form>
+</body>
+</html>

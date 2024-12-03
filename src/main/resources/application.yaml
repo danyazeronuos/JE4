@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: JE4
+  datasource:
+    url: jdbc:postgresql://localhost:5432/english
+    username: daniilmozzhukhin
+    password: 1111

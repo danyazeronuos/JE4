@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .add_form {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+</style>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Word</th>
+        <th>Translate</th>
+        <th>Speech Part</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+            <td th:text="${item.getId()}"></td>
+            <td th:text="${item.getWord()}"></td>
+            <td th:text="${item.getTranslate()}"></td>
+            <td th:text="${item.getSpeechPart().getTitle()}"></td>
+            <td>
+                <form action="/delete" method="post">
+                    <input type="hidden" name="id" th:value="${item.getId()}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+            <td>
+                <form th:action="${'/update/' + item.getId()}" method="get">
+                    <input type="submit" value="Edit">
+                </form>
+            </td>
+    </tr>
+    </tbody>
+</table>
+<!--/*@thymesVar id="newVocabulary" type="org.zero.je4.model.VocabularyDTO"*/-->
+<form class="add_form" action="/add" method="post">
+    <input type="text" name="word" placeholder="Word" >
+    <input type="text" name="translate" placeholder="Translate">
+    <input type="number" name="speechPartId" placeholder="Speech Part Id">
+    <input type="submit" value="add">
+</form>
+</body>
+</html>
