@@ -3,31 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" th:href="@{/styles/main.css}"/>
 </head>
 <body>
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-
-    .add_form {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-</style>
 <table class="table">
     <thead>
     <tr>
@@ -54,6 +32,11 @@
                     <input type="submit" value="Edit">
                 </form>
             </td>
+        <td>
+            <form th:action="${'/' + item.getId()}" method="get">
+                <button type="submit">Sentences</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

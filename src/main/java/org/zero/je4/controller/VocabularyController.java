@@ -20,6 +20,15 @@ public class VocabularyController {
         return "index";
     }
 
+    @GetMapping("/{id}")
+    public String getVocabularySentences(@PathVariable Integer id, Model model) {
+        var vocabulary = vocabularyService.getVocabulary(id);
+        model.addAttribute("vocabulary", vocabulary);
+        model.addAttribute("items", vocabulary.getSentences());
+
+        return "sentences";
+    }
+
     @PostMapping("/add")
     public String addVocabulary(
             @RequestParam String word,

@@ -3,6 +3,8 @@ package org.zero.je4.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -25,5 +27,12 @@ public class Vocabulary {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "speech_part_id", nullable = false)
     private SpeechPart speechPart;
+
+    @ManyToMany
+    @JoinTable(
+            name = "vocabulary_sentence",
+            joinColumns = @JoinColumn(name = "vocabulary_id"),
+            inverseJoinColumns = @JoinColumn(name = "sentence_id"))
+    private List<Sentence> sentences;
 
 }

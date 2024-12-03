@@ -3,6 +3,7 @@ package org.zero.je4.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.zero.je4.entity.Sentence;
 import org.zero.je4.entity.Vocabulary;
 import org.zero.je4.model.VocabularyDTO;
 import org.zero.je4.repository.SpeechPartRepository;
